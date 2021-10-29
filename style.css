@@ -1,6 +1,137 @@
-.hero {
-  width: 100vw;
-  height: 100vh;
-  background-color: gray;
-  
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.header{
+    height: 40vh;
+    width: 100vw;
+    background-color: #2b6777;
+    filter: drop-shadow(0px 10px 20px black);
+}
+
+.grow {
+    transition: all .2s ease-in-out;
+}
+.grow:hover {
+    transform: scale(1.1);
+}
+
+.shrink {
+    transition: all .2s ease-in-out;
+}
+.shrink:hover {
+    transform: scale(0.9);
+}
+
+.removedropshadow {
+    transition: all .2s ease-in-out;
+}
+.removedropshadow:hover {
+    filter: drop-shadow(6px 6px 20px #000);
+}
+
+
+.halflifeheader {
+    font-family: "Inter", sans-serif;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    filter: drop-shadow(20px 35px 15px #000);
+
+}
+
+h1 {
+    font-size: 8vw;
+    font-weight: 900;
+    background-color: #c8d8e4;
+    color: #2b6777;
+    display: block;
+    padding-top:em;
+    padding-left: .25em;
+    padding-right: .25em;
+}
+
+h1:nth-child(2) {
+    position: absolute;
+    background-color: #2b6777;
+    color: #f2f2f2;
+    clip-path: inset(-1% -1% 50% -1%);
+}
+
+.subheader {
+    font-family: "Inter", sans-serif;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2.5em;
+    
+    filter: drop-shadow(20px 10px 12.5px #000);
+}
+
+h2 {
+    font-size: 2vw;
+    font-weight: 950;
+    color: #c8d8e4;
+    padding-down: .5em;
+}
+
+.description {
+    filter: drop-shadow(6px 6px 9.5px #000);
+    opacity: 75%;
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 5.75px;
+    padding-left: 250px;
+}
+
+.opacity100 {
+    transition: all .2s ease-in-out;
+}
+.opacity100:hover {
+    opacity: 100%;
+}
+
+.content {
+    overflow:hidden;
+    height: 60vh;
+    width: 100vw;
+    background-color: #333131;
+    padding: 20px;
+}
+
+.float_child:nth-child(1) {
+    width: 20%;
+    float: left;
+}
+.float_child:nth-child(2) {
+    width: 60%;
+    float: left;
+}
+
+.information {
+    margin-top:40px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-right:30px;
+    
+    height: 42.5vh;
+}
+
+.graph {
+    align-items: center;
+    justify-content: center;
+    margin-top:37.5px;
+    margin-bottom: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+    transform: scale(1.2);
+    
+    height: 42.5vh;
 }

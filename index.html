@@ -1,15 +1,101 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <title>Substance Half-Life</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
+    <head>
+        <title>Substance Half-Life</title>
+        <link rel="stylesheet" href="style.css">
+        
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script>
+            google.charts.load('current', {
+                packages: ['corechart', 'line']
+            });
+            
+            google.charts.setOnLoadCallback(drawLogScales);
+
+            function drawLogScales() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('number', 'X HOURS');
+                data.addColumn('number', 'Quantity Left at Time X');
+                
+                var init = 200.0;
+                var halflife = 5;
+                var current = init;
+
+                const s = [];
+                for(var x = 0; x < 25; x++) {
+                    s.push([x, current]);
+                    current = init * Math.pow(.5, ((x+1)/halflife));
+                };
+                
+                data.addRows(s);
+
+              var options = {
+//                borderColor: '#fff',
+//                backgroundColor: '#333131',
+                lineWidth: 5,
+                backgroundColor: 'transparent',
+                
+                legend: {
+                    display: false
+                },
+                  
+                hAxis: {
+                  title: 'Time(Hours)',
+                  titleTextStyle: {
+                    color: '#fff'      
+                  },
+                  logScale: false,
+                    textStyle: {color: '#f2f2f2'},
+                    gridlines:{ gridlineColor: '#fff',
+                                interval: 1,
+                                opacity: 50}
+                },
+                vAxis: {
+                  title: 'Substance Left(mg)',
+                  titleTextStyle: {
+                    color: '#fff'      
+                },
+                  logScale: false,
+                    textStyle: {color: '#f2f2f2'},
+                    gridlines:{ gridlineColor: '#fff',
+                                interval: 1}
+                },
+                colors: ['#2b6777']
+              };
+
+              var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+              chart.draw(data, options);
+            }
+        </script>
+    </head>
   
-  <body>
-    <div class="hero">
-      
-    </div>
-  </body>
+    <body>
+        <div class="header">
+            <div class="halflifeheader grow">
+                <h1>HALFLIFE</h1>
+                <h1>HALFLIFE</h1>
+            </div>
+            
+            <div class="subheader grow removedropshadow">
+                <h2>OF A SUBSTANCE</h2>
+            </div>
+            
+        </div>
+        
+        <div class="content">
+            <div class="float_child">
+                <div class="information">
+            
+                </div>
+            </div>
+            
+            <div class="float_child">
+                <div id="chart_div" class="graph">
+                    
+                </div>
+            </div>
+        </div>
+    </body>
   
 </html>
